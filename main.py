@@ -21,6 +21,7 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+    AsteroidField()
     dt = clock.tick(60) / 1000
     while True:
         for event in pygame.event.get():
@@ -31,6 +32,12 @@ def main():
             x.draw(screen)
         for x in updatable:
             x.update(dt)
+        for x in asteroids:
+            if player.is_colliding(x):
+                print("get FUCKED")
+                pygame.QUIT
+                return
+            
         pygame.display.flip()
         clock.tick(60)
 
