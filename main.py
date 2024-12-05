@@ -42,8 +42,8 @@ def main():
                 return
             for y in shots:
                 if y.is_colliding(x):
+                    x.split()
                     y.kill()
-                    x.kill()
         
         pygame.display.flip()
         clock.tick(60)
